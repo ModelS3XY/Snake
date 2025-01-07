@@ -25,7 +25,7 @@ class GameViewModel: ViewModel() {
             body.value = it
         }
         generateApple()
-        fixedRateTimer("timer1", true, 1000, 500) {
+        fixedRateTimer("timer1", true, 1000, 200) {
             val newPos = snakeBody.first().copy().apply {
                 when(direction) {
                     Direction.LEFT -> x--
@@ -70,6 +70,7 @@ class GameViewModel: ViewModel() {
     fun reset() {
         snakeBody.clear()
         direction = Direction.LEFT
+        point = 0
         start()
     }
 
